@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="505acd0e-08ee-4233-a7a2-5772d4843a8b" name="Default Changelist" comment="required">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/programming/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/programming/main.py" afterDir="false" />
     </list>
@@ -222,7 +221,7 @@
       <updated>1625503988044</updated>
       <workItem from="1625504020193" duration="167000" />
       <workItem from="1625504189511" duration="1338000" />
-      <workItem from="1625555553478" duration="14137000" />
+      <workItem from="1625555553478" duration="21877000" />
     </task>
     <task id="LOCAL-00001" summary="initial of faz 2">
       <created>1625504447446</created>
@@ -238,7 +237,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625504554391</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add rules">
+      <created>1625571197100</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625571197100</updated>
+    </task>
+    <task id="LOCAL-00004" summary="required">
+      <created>1625571218244</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1625571218244</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +271,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial of faz 2" />
+    <MESSAGE value="add rules" />
     <MESSAGE value="required" />
     <option name="LAST_COMMIT_MESSAGE" value="required" />
   </component>
@@ -278,32 +292,32 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="635" y="203" key="FileChooserDialogImpl/0.0.1707.920@0.0.1707.920" timestamp="1625504186473" />
-    <state width="1664" height="242" key="GridCell.Tab.0.bottom" timestamp="1625561307703">
+    <state width="1664" height="242" key="GridCell.Tab.0.bottom" timestamp="1625578360267">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1625561307703" />
-    <state width="1664" height="242" key="GridCell.Tab.0.center" timestamp="1625561307703">
+    <state width="1664" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1625578360267" />
+    <state width="1664" height="242" key="GridCell.Tab.0.center" timestamp="1625578360267">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1625561307703" />
-    <state width="1664" height="242" key="GridCell.Tab.0.left" timestamp="1625561307702">
+    <state width="1664" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1625578360267" />
+    <state width="1664" height="242" key="GridCell.Tab.0.left" timestamp="1625578360267">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1625561307702" />
-    <state width="1664" height="242" key="GridCell.Tab.0.right" timestamp="1625561307703">
+    <state width="1664" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1625578360267" />
+    <state width="1664" height="242" key="GridCell.Tab.0.right" timestamp="1625578360267">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1625561307703" />
+    <state width="1664" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1625578360267" />
     <state x="364" y="106" key="SettingsEditor" timestamp="1625505162320">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="364" y="106" key="SettingsEditor/0.0.1707.920@0.0.1707.920" timestamp="1625505162320" />
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1625505291687">
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1625571228389">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1625505291687" />
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1625571228389" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Video_Sharing_platform$main.coverage" NAME="main Coverage Results" MODIFIED="1625561307695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/programming" />
+    <SUITE FILE_PATH="coverage/Video_Sharing_platform$main.coverage" NAME="main Coverage Results" MODIFIED="1625578360259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/programming" />
   </component>
 </project>

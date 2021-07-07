@@ -1,4 +1,8 @@
+import random
+import string
 import urllib.request as urllib2, psycopg2
+from datetime import datetime
+
 from psycopg2 import Error
 
 flag = False
@@ -309,7 +313,6 @@ try:
             else:
                 data['is_like'] = False
 
-
             sql = """SELECT id FROM "user" WHERE username = %(username)s;"""
 
             cursor.execute(sql, data)
@@ -434,54 +437,159 @@ try:
             else:
                 print("This user is not valid!")
 
+    # add comment
+    elif operation == 9:
+        print("Fill the blanks: ")
+        data['username'] = str(input("username: "))
+        data['video_id'] = str(input("video id: "))
+        data['content'] = str(input("comment: "))
 
-    # if flag == False:
-    #     sql = """
-    #                CREATE EXTENSION pgcrypto;
-    #                INSERT INTO "user" (username, password, email, image, joindate) VALUES
-    #                 (%(username)s, crypt('12345', gen_salt('bf')), %(email)s, %(image)s, %(joinDate)s);
-    #                """
-    # else:
-    # sql = """
-    #                    INSERT INTO "user" (username, password, email, image, joindate) VALUES
-    #                     (%(username)s, crypt('12345', gen_salt('bf')), %(email)s, %(image)s, %(joinDate)s);
-    #                    """
-    # # flag = True
-    #
-    # data_insert = {
-    #     'username': "emad",
-    #     'email': "emad@gmail.com",
-    #     'image': "emad.jpg",
-    #     'joinDate': "2016-06-22 20:10:25-07"
-    # }
-    #
-    # deleteSql = """
-    #                    DELETE FROM "user" WHERE username = %(username)s;
-    #                    """
-    #
-    # delete = {
-    #     'username': "emad",
-    #     'email': "emad@gmail.com",
-    #     'image': "emad.jpg",
-    #     'joinDate': "2016-06-22 20:10:25-07"
-    # }
-    #
-    # updateSql = """
-    #                    UPDATE public."user"
-    #                    SET username=%(username)s, email=%(email)s, joindate=%(joinDate)s, image=%(image)s
-    #                    WHERE username = %(old_username)s;
-    #                        """
-    #
-    # update = {
-    #     'username': "ali",
-    #     'email': "emad@gmail.com",
-    #     'image': "emad.jpg",
-    #     'joinDate': "2016-06-22 20:10:25-07",
-    #     'old_username': "amir"
-    # }
+        # check the data that are not blank
+        if data['username'] == "" or data['name'] == "" or data['content'] == "":
+            print("The required things still are blank.")
 
-    # cursor.execute(updateSql, update)
-    # conn.commit()
+        else:
+
+            sql = """SELECT id FROM "user" WHERE username = %(username)s;"""
+
+            cursor.execute(sql, data)
+            output = cursor.fetchall()
+            conn.commit()
+
+            # check the validation of the user
+            if len(output) > 0:
+
+                data['user_id'] = int(output[0][0])
+                sql = """SELECT id FROM video WHERE id = %(video_id)s;"""
+
+                cursor.execute(sql, data)
+                output = cursor.fetchall()
+                conn.commit()
+                if len(output) > 0:
+
+                    # insert the comment of the video into db
+                    sql = """ INSERT INTO comment (video_id, content) VALUES
+                                     (%(video_id)s, %(content)s);"""
+                    cursor.execute(sql, data)
+                    conn.commit()
+
+                    sql = """ SELECT id FROM comment WHERE (video_id, content) VALUES
+                                                         (%(video_id)s, %(content)s);"""
+                    cursor.execute(sql, data)
+                    conn.commit()
+
+                    # insert the relation comment into commentCreation of db
+                    sql = """ INSERT INTO commentcreation (video_id, content) VALUES
+                                                         (%(video_id)s, %(content)s);"""
+                    cursor.execute(sql, data)
+                    conn.commit()
+
+
+                else:
+                    print("This video is not valid!")
+
+            else:
+                print("This user is not valid!")
+
+    # make a playlist
+    elif operation == 10:
+        print("Fill the blanks: ")
+        data['username'] = str(input("username of creator: "))
+        data['name'] = str(input("name: "))
+        data['video_id'] = str(input("video id: "))
+        # 1(private), 2(public)
+        data['is_private'] = int(input("privacy: \n1) private\n2)public"))
+
+        # check the data that are not blank
+        if data['username'] == "" or data['name'] == "" or data['video_id'] == "" or data['is_private'] == "":
+            print("The required things still are blank.")
+        else:
+
+            # check the privacy
+            if data['is_private'] == 1:
+                data['is_private'] = True
+            elif data['is_private'] == 2:
+                data['is_private'] = False
+
+            else:
+
+                sql = """SELECT id FROM "user" WHERE username = %(username)s ;"""
+
+                cursor.execute(sql, data)
+                output = cursor.fetchall()
+                conn.commit()
+
+                # check validation of the user
+                if len(output) > 0:
+                    data['user_id'] = int(output[0][0])
+
+                    # insert the new playlist into db
+                    sql = """ INSERT INTO playlist (user_id, name, is_private) VALUES
+                                                 (%(user_id)s, %(name)s, %(is_private)s);"""
+
+                    cursor.execute(sql, data)
+                    conn.commit()
+                else:
+                    print("This user is not valid!")
+
+    # add a video to the playlist
+    elif operation == 11:
+        print("Fill the blanks: ")
+        data['username'] = str(input("username of creator: "))
+        data['name'] = str(input("name: "))
+        data['video_id'] = str(input("video id: "))
+
+        # check the data that are not blank
+        if data['username'] == "" or data['name'] == "" or data['video_id'] == "" or data['is_private'] == "":
+            print("The required things still are blank.")
+        else:
+
+            # check the privacy
+            if data['is_private'] == 1:
+                data['is_private'] = True
+            elif data['is_private'] == 2:
+                data['is_private'] = False
+
+            else:
+
+                sql = """SELECT id FROM "user" WHERE username = %(username)s ;"""
+
+                cursor.execute(sql, data)
+                output = cursor.fetchall()
+                conn.commit()
+
+                # check validation of the user
+                if len(output) > 0:
+                    data['user_id'] = int(output[0][0])
+
+                    # insert the new playlist into db
+                    sql = """ INSERT INTO playlist (user_id, name, is_private) VALUES
+                                                         (%(user_id)s, %(name)s, %(is_private)s);"""
+
+                    cursor.execute(sql, data)
+                    conn.commit()
+                else:
+                    print("This user is not valid!")
+
+    # auto generate data
+    elif operation == 12:
+        count = 0
+        while count < 10:
+            dt = datetime.now()
+            count += 1
+            data['username'] = ''.join(random.choices(string.ascii_uppercase +string.digits, k = 10))
+            data['password'] = ''.join(random.choices(string.ascii_uppercase +string.digits, k = 10))
+            data['email'] = ''.join(random.choices(string.ascii_uppercase +string.digits, k = 5))+("@gmail.com")
+            data['image'] = ''.join(random.choices(string.ascii_uppercase +string.digits, k = 10))
+            data['join_date'] = dt.strftime("%Y-%m-%d %H:%M:%S")
+
+            # insert the new user into db
+            sql = """ INSERT INTO "user" (username, password, email, image, join_date) VALUES
+                                (%(username)s, crypt(%(password)s, gen_salt('bf')), %(email)s, %(image)s, %(join_date)s);"""
+
+            cursor.execute(sql, data)
+            conn.commit()
+
     conn.close()
 
 

@@ -29,7 +29,7 @@ try:
                             password="amir20002004",
                             host="localhost",
                             port="5432",
-                            database="youtube")
+                            database="videoSharingPlatform")
     print("connect to database")
 
     cursor = conn.cursor()
